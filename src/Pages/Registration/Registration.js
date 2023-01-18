@@ -1,30 +1,25 @@
 import React from 'react'
 import Dialog from "@mui/material/Dialog";
-// import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-// import DialogContentText from "@mui/material/DialogContentText";
-// import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import style from "./Registration.module.css"
 import Buttons from '../../Atom/Button/Buttons';
-import GoogleIcon from "@mui/icons-material/Google";
-import AppleIcon from "@mui/icons-material/Apple";
 import Input from '../../Atom/Input/Input';
-import { FcGoogle } from "react-icons/fc"
-import { BsApple } from "react-icons/bs"
-import { Link } from "react-router-dom"
 import { isValidEmail, isValidMobile, isValidString } from "../../Helper/Helper"
 import { useState } from 'react';
+
 export default function SignUp() {
   const [open, setOpen] = React.useState(true);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const [namemessage,setNameMessage]=useState("")
   const[name,setName]=useState('')
   const[phone,setPhone]=useState('')
   const[email,setEmail]=useState('')
+  const[password,setPassword]=useState('')
   const [toggle, setToggle] = useState(false);
+  const [info,setInfo]=useState([])
   function ToggleEU() {
     setToggle(!toggle);
   }
@@ -39,34 +34,42 @@ export default function SignUp() {
   function handleEmail(inputEmail)
   {
     setEmail(inputEmail)
+  } 
+  function handlePassword(inputPassword){
+    setPassword(inputPassword)
   }
   function submitFunction()
   {
    const data={
-      name,
-      phone
+      name:name,
+      phone:phone,
+      email:email,
+      password:password,
     }
-    if(!isValidString(name))
+    if(isValidString(name)===false)
     {
-      alert("add prober Name")
-      return
+      alert("Name is Invalid ")
     }
     if(toggle==true)
     {
       if(!isValidMobile(phone))
       {
-        alert("add prober PhoneNumber ")
-        return
+        alert("Phone number is Invalid ")
       }
     }
     else
     {
         if(!isValidEmail(email))
       {
-        alert("Give correct email")
+        alert("Email is InValid")
       }
   }
-    
+  //  if(isValidPasswpord(password)){
+  //    alert("Enter strong Password")
+  //  }
+  info.push(data)
+  setInfo(info)
+  localStorage.setItem("UserDetail",JSON.stringify(info))
   }
 
   return (
@@ -91,6 +94,7 @@ export default function SignUp() {
           {toggle ? (
                       <>
                         <Input className={style.inputs} text="Phone" handleOnchange={handleMobile} />
+                        
                       </>
                     ) : (
                       <>
@@ -105,12 +109,13 @@ export default function SignUp() {
                       )}
           
                      </span>
-          <h4>Date of birth</h4>
+                     <Input className={style.input1} text="Password" handleOnchange={handlePassword} />
+          <h4 style={{marginTop:"1rem"}}>Date of birth</h4>
          
           <span className={style.date}>
           
          
-    <select id='gMonth2' style={{width:'10rem'}}onchange="show_month()">
+    <select id='gMonth2' style={{width:'10rem',height:"3.5rem"}}onchange="show_month()">
     <option selected value=''>Month</option>
     <option  value='1'>Janaury</option>
     <option value='2'>February</option>
@@ -165,7 +170,7 @@ export default function SignUp() {
        
          
         
-          <select id='gMonth2' style={{width:'5rem'}} onchange="show_month()">
+          <select id='gMonth2' style={{width:'5rem',height:"3.5rem"}} onchange="show_month()">
     <option value=''>Year</option>
     <option value='1'>2023</option>
     <option value='2'>2022</option>
@@ -215,6 +220,8 @@ export default function SignUp() {
   
   
     </select>
+   
+   
           </span>
             <Buttons
               className={style.nxtbtn}
