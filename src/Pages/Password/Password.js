@@ -13,12 +13,16 @@ import Buttons from '../../Atom/Button/Buttons';
 import AppleIcon from "@mui/icons-material/Apple";
 import Input from '../../Atom/Input/Input';
 import {FcGoogle} from "react-icons/fc"
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+
 export default function Password() {
   const [open, setOpen] = React.useState(true);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-
+const toHome=useNavigate()
+function HandleHome(){
+  toHome('/home')
+}
   return (
     
       <Dialog
@@ -57,6 +61,7 @@ export default function Password() {
             <Buttons
               className={style.logbtn}
               Sign="Log in"
+              btnNext={HandleHome}
             />
             <p>Don't have an account?<Link to={"/signup"}> Sign up</Link></p>
         </DialogContent>

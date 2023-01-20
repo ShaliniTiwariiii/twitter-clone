@@ -68,6 +68,18 @@
     width:17.5rem;
     height:3.5rem;
 }
+.para {
+    width: 50%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 5px 0 5px;
+}
+
+.paraSpan {
+    background: #fff;
+    padding: 0 10px;
+}
 @media only screen and  (max-width:660px) {
     .maincontainer{
         width:auto

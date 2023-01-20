@@ -46,7 +46,7 @@ export default function SignUp() {
 
           <Buttons
             className={style.applebtn}
-            logo={<BsApple />}
+            image={<BsApple />}
             Sign="Sign in with Apple"
           />
 

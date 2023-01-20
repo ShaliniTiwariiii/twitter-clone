@@ -1,16 +1,14 @@
 import React from 'react'
 import Dialog from "@mui/material/Dialog";
-// import DialogActions from "@mui/material/DialogActions";
+
 import DialogContent from "@mui/material/DialogContent";
-// import DialogContentText from "@mui/material/DialogContentText";
-// import DialogTitle from "@mui/material/DialogTitle";
+
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import style from "./Login.module.css"
 import Buttons from '../../Atom/Button/Buttons';
-import GoogleIcon from "@mui/icons-material/Google";
-import AppleIcon from "@mui/icons-material/Apple";
+
 import Input from '../../Atom/Input/Input';
 import {FcGoogle} from "react-icons/fc"
 import {Link} from "react-router-dom" 

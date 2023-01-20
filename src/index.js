@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import Login from './Pages/Login/Login';
 import Password from './Pages/Password/Password';
 import SignUp from "./Pages/SignUp/SignUp"
+import Home from './Pages/Home/Home';
 import Registration from './Pages/Registration/Registration';
 import {
   createBrowserRouter,
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Registration/>,
+  },
+  {
+    path:'/home',
+    element: <Home/>,
   }
 ]);
 
