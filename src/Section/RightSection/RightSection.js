@@ -1,14 +1,17 @@
+import { style } from '@mui/system'
 import React from 'react'
-import style from './RightSection.module.css'
-import RightSecDiv from '../../Component/RightSecDIv/RightSecDiv'
-import SearchBar from '../../Component/SearchBar'
+ import styles from './RightSection.module.css'
+// import RightSecDiv from '../../Component/RightSecDIv/RightSecDiv'
+import RightFollow from '../../Component/RightFollow/RightFollow'
+import RightTrend from '../../Component/RightTrend/RightTrend'
+import SearchBar from '../../Component/SearchBar/SearchBar'
 function RightSection() {
   return (
     <div>
-     
-      <SearchBar/>
-      <div className={style.RigtDiv}>
-      <RightSecDiv/></div>
+<div className={styles.mainDiv}>
+      <SearchBar /></div>
+      <RightTrend/>
+      <RightFollow/>
     </div>
   )
 }

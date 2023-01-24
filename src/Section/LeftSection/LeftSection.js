@@ -19,6 +19,8 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import { useState } from 'react';
 import PopOver from '../../Atom/PopOver/PopOver';
+import { tweetDataAtom } from '../../Recoil/atom';
+import { useRecoilState } from 'recoil';
 const arrs = [
   { icon: <HomeIcon style={{ fontSize: "28px" }} />, text: "Home" },
   { icon: <TagSharpIcon style={{ fontSize: "28px" }} />, text: "Explore" },
@@ -33,6 +35,13 @@ const arrs = [
 function LeftSection() {
   const [open, setOpen] = React.useState(false);
 
+const[tweet,setTweet]=useState('')
+// const[storeTweet,setStoreTweet]=useRecoilState(tweetDataAtom)
+
+
+function handleChange(e){
+setTweet(e.target.value)
+}
 
 
   const handleClickOpen = () => {
@@ -41,10 +50,14 @@ function LeftSection() {
 
   const handleClose = () => {
     setOpen(false);
-  };
+    // const tweetdata={tweetText:tweet }
+    // setStoreTweet(tweetdata)
+    // console.log(tweetdata)
+    };
+// console.log(storeTweet)
 
 
-  return (<>
+  return (<> 
     <div className={style.mainDiv}>
       <div className={style.btnDiv}>
         <TwitterIcon style={{ color: "#00acee", fontSize: "xx-large", marginLeft: '1rem' }} />
@@ -56,7 +69,7 @@ function LeftSection() {
           return (
             <>
               <div key={index} >
-                <Buttons className={style.icons}
+                 <Buttons className={style.icons}
                   image={arr.icon}
                   Sign={arr.text} />
               </div>
@@ -64,6 +77,12 @@ function LeftSection() {
             </>
           )
         })}
+
+        {/* {arrs.map(data => (
+          <div className={style.iconWrapper}>
+            {data.icon} {data.text}
+          </div>
+        ))} */}
 
         <div>
           {/* <Button variant="outlined" onClick={handleClickOpen}>
@@ -84,12 +103,15 @@ function LeftSection() {
            {/* <img src={didi} alt="" className={style.BadiDidi} /> */}
             <textarea className={style.ForTweet}
             placeholder='What is happening ?'
+            value={tweet}
+            onChange={handleChange }
             />
 
             <DialogActions>
 
               <Buttons btnNext={handleClose} 
               Sign=' Tweet'
+             
               className={style.btnTweet}
               />
                
@@ -98,14 +120,7 @@ function LeftSection() {
           </Dialog>
         </div>
         <br />
-        {/* <Buttons
-              className={style.btnI}
-              Sign="Shalini Tiwari"
-              image= {<img src={photo} alt="" className={style.photo} />}
-              // image= {<img src={didi} alt="" className={style.didi} />}
-             logo={<MoreHorizOutlinedIcon />} 
-             
-             /> */}
+       
              <PopOver/>
             
         

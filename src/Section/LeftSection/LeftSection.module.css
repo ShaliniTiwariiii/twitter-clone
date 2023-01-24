@@ -1,9 +1,10 @@
 .mainDiv{
-    border: 2px solid black;
+    border: 1px solid lightgrey;
     width: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  
 
 }
 .btnDiv{
@@ -46,7 +47,7 @@ background-color:lightgray;
   border-radius: 25px;
   /* font-size:large; */
  height: 3rem;
- color: #0F1419;
+ /* color: #0F1419; */
  font-size: 20px;
 }
 .icons:hover{
@@ -66,6 +67,7 @@ background-color:lightgray;
 }
 .ForTweet{
     width: 35rem;
+    overflow-x: hidden;
     height: 10rem;
     border: 2px solid white;
    
@@ -78,5 +80,10 @@ background-color:lightgray;
     color: white;
     border-radius: 20px;
     font-size: larger;
+
+}
+
+
+.icon{
 
 }

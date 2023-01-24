@@ -5,14 +5,14 @@ import style from './SearchBar.module.css'
 function SearchBar() {
     // const[searchTerm,setSearchTerm]=useState('')  
   return (
-    <div>
-        <SearchIcon color="disabled" fontSize="large" className={style.SearchIcon}/>
+    <div className={style.SearchBarDiv}>
+      <span>  <SearchIcon color="disabled" fontSize="large" className={style.SearchIcon}/></span>
        <input
        className={style.SearchBar}
        
        type='text'
     
-      placeholder= '             Search here'
+      placeholder= ' Search here'
     
     //   onChange={(e)=>{
     //     setSearchTerm(e.target.value)

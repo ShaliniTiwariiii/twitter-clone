@@ -7,6 +7,7 @@ import Password from './Pages/Password/Password';
 import SignUp from "./Pages/SignUp/SignUp"
 import Home from './Pages/Home/Home';
 import Registration from './Pages/Registration/Registration';
+import {RecoilRoot} from 'recoil'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -17,7 +18,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/login",
     element: <Login/>,
   },
   {
@@ -33,14 +34,17 @@ const router = createBrowserRouter([
     element: <Registration/>,
   },
   {
-    path:'/home',
+    path:'/',
     element: <Home/>,
   }
 ]);
 
 root.render(
+
   <React.StrictMode>
+  <RecoilRoot>  
    <RouterProvider router={router} />
+   </RecoilRoot>
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
