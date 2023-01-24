@@ -145,11 +145,11 @@
 //        <Buttons className={style.btns} btnNext={handleClickOpen} 
 //     image={<FaRegComment className={style.Comment} />}
 //     />
-//       <Dialog
-//             open={open}
-//             onClose={handleClose}
+      // <Dialog
+      //       open={open}
+      //       onClose={handleClose}
 
-//           >
+      //     >
 //             <img src={photo} alt="" className={style.BigPhoto} />
 //            {/* <img src={didi} alt="" className={style.BadiDidi} /> */}
 //             <textarea className={style.ForTweet}
@@ -440,12 +440,14 @@ import {MdOutlinePoll} from 'react-icons/md'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Buttons from '../../Atom/Button/Buttons' 
 import { color, margin } from "@mui/system";
-
-
+import Dialog from '@mui/material/Dialog';
+ import DialogActions from '@mui/material/DialogActions';
+ import  photo from '../../Assets/photo.jpg'
 
 
 export default function Card(){
   const [count,setCount]=useState(0)
+  const [open, setOpen] = React.useState(false);
   const tweetPosts = [
     {   
        profile: <AccountCircleIcon style={{fontSize: "50px"}}/>,
@@ -638,6 +640,13 @@ refLink : 'https://twitter.com/ippittipapitti',
     function Count(){
       setCount(count +1)
     }
+    const handleClickOpen = () => {
+           setOpen(true);
+         };
+      
+       const handleClose = () => {
+         setOpen(false);
+         };
     return (
     <>
     
@@ -653,7 +662,21 @@ refLink : 'https://twitter.com/ippittipapitti',
     <p style={{marginLeft: "-10rem"}}>{tweetPost.organization}</p>
      
     <div picdiv>{<img src={tweetPost.tweetPic}/>}</div>
-    <span><Buttons className={style.btns} image={<FaRegComment style={{fontSize: "15px"}}/>}/>
+
+    <span>
+     <Dialog
+            open={open}
+            onClose={handleClose}
+
+           > 
+       <img src={photo} alt="" className={style.BigPhoto} />
+            {/* <img src={didi} alt="" className={style.BadiDidi} /> */}
+             <textarea className={style.ForTweet}
+             placeholder='What is happening ?'
+             /> 
+<DialogActions>
+<Buttons className={style.btns} btnNext={handleClose} 
+     image={<FaRegComment className={style.Comment} />}/></DialogActions></Dialog>
           <Buttons className={style.btns} image={<AiOutlineRetweet style={{fontSize: "15px"}}/>}/>{tweetPost.retweetCount}
           <Buttons btnNext={Count} className={style.btns} image={<CiHeart style={{fontSize: "15px" }}/>}/>{count}
     </span>

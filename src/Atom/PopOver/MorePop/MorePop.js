@@ -13,36 +13,36 @@ function Remove(){
    
 }
     return (
-    //     <PopupState variant="popover" popupId="demo-popup-popover">
-    //         {(popupState) => (
-    //             <div>
+        <PopupState variant="popover" popupId="demo-popup-popover">
+            {(popupState) => (
+                <div>
                      
-    //                 <button className={style.btn}  
-    //                 {...bindTrigger(popupState)}>
-    //                      {/* <MoreHorizIcon className={style.more}/> */}
-    //                     </button>
-    //           <Popover
-    //                     {...bindPopover(popupState)}
-    //                     anchorOrigin={{
-    //                         vertical: 'top',
-    //                         horizontal: 'center',
-    //                     }}
-    //                     transformOrigin={{
-    //                         vertical: 'bottom',
-    //                         horizontal: 'center',
-    //                     }}
-    //                 >
-    //                     <Typography sx={{ p: 2 }} onClick={Remove}>Remove Tweet</Typography>
-    //                     <Typography sx={{ p: 2 }}>Log out </Typography>
-    //                 </Popover>
-    //             </div>
-    //         )}
-    //     </PopupState>
-    <div className={style.popup}>
-        <p>
-            Not Intrested
-        </p>
-    </div>
+                    <button className={style.btn}  
+                    {...bindTrigger(popupState)}>
+                         <MoreHorizIcon className={style.more}/>
+                        </button>
+              <Popover
+                        {...bindPopover(popupState)}
+                        anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'center',
+                        }}
+                        transformOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'center',
+                        }}
+                    >
+                        <Typography sx={{ p: 2 }} onClick={Remove}>Remove Tweet</Typography>
+                        <Typography sx={{ p: 2 }}>This trend is harmful </Typography>
+                    </Popover>
+                </div>
+            )}
+        </PopupState>
+    // <div className={style.popup}>
+    //     {/* <p>
+    //         Not Intrested
+    //     </p> */}
+    // </div>
     )
 }
 
